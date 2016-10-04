@@ -27,3 +27,21 @@ puts "You need the following indredients:"
 ingredients.each do |ingredient|
   puts "#{ingredient[:quantity]} #{ingredient[:name]}"
 end
+
+loop do
+  puts "\n"
+  print_divider
+
+  puts "Do you have all the ingredients you need? Y / N"
+  answer = gets.chomp.upcase
+
+  if answer == "N"
+    puts "Get shopping!"
+    print_progress_bar
+  elsif answer == "Y"
+    puts "Get cooking!"
+    break
+  else
+    puts "That's not a valid answer."
+  end
+end
