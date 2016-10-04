@@ -111,8 +111,25 @@ def break_eggs
 end
 
 def ask_if_ready(step, index)
-  puts "Are you ready for step #{index + 1}?\n(#{step[:description]})"
+  puts "Are you ready for step #{index + 1} Y / N?\n(#{step[:description]})"
   answer = gets.chomp.upcase
 
   answer == "Y"
 end
+
+steps.each_with_index do |step, index|
+  print_divider
+
+  loop do
+    ready = ask_if_ready(step, index)
+    break if ready
+
+    puts "Ok, take your time"
+    print_progress_bar
+  end
+
+  send(step[:action])
+end
+
+print_divider
+puts "Listo! Enjoy your spanish omelette"
