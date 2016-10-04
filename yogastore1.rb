@@ -1,17 +1,27 @@
 #yogastore1
-shopping_cart = []
+@shopping_cart = []
 
-products = [
-  {item_id: 11, name: "Yoga Mat", price: 20},
-  {item_id: 12, name: "Yoga Pants", price: 15},
-  {item_id: 13, name: "Block", price: 17},
-  {item_id: 14, name: "Yoga Towel", price: 12},
-  {item_id: 15, name: "Meditation blanket", price: 25},
-  {item_id: 16, name: "Zen Socks", price: 5},
+#products
+@products = [
+  {product_id: 11, name: "Yoga Mat", price: 20},
+  {product_id: 15, name: "Meditation blanket", price: 25},
+  {product_id: 16, name: "Zen Socks", price: 5},
 ]
-
-puts "Welcome to Yoga Store! We have awesome stuff:"
-
-products.each do |product|
-  puts "#{product[:item_id]} - #{product[:name]}, € #{product[:price]}"
+#show items
+def show_items
+  @products.each do |product|
+    puts "Product ID: #{product[:product_id]}"
+    puts "Name: #{product[:name]}"
+    puts "Price: #{product[:price]}"
+  end
 end
+#select item
+def select_item
+  puts "Enter the number for the item you want"
+  @number_item = gets.chomp.to_i
+end
+#add to cart
+
+
+
+#pick items
