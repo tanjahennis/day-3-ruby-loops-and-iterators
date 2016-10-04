@@ -62,3 +62,50 @@ steps = [
   { description: "When almost set, invert on a plate and slide back into the pan", action: "generic_recipe_step" },
   { description: "Cook a few more minutes and slide on to a plate and cool for 10 minutes before serving", action: "generic_recipe_step" }
 ]
+
+print_divider
+puts "See the steps below to follow."
+print_divider
+
+steps.each_with_index do |step, index|
+  puts (index + 1).to_s + ") " + "#{step[:description]}"
+end
+
+def generic_recipe_step
+  puts "On it!"
+  print_progress_bar
+end
+
+def scrape_potatoes
+  counter = 0
+  while counter < NUM_POTATOES
+    counter += 1
+    print "Scraping potato #{counter}"
+    print_progress_bar
+  end
+end
+
+def cut_potatoes
+  counter = 0
+  while counter < NUM_POTATOES
+    counter += 1
+    print "Cutting potato #{counter} into thick slices"
+    print_progress_bar
+  end
+end
+
+def add_potatoes_to_pan
+  for counter in 1..NUM_POTATOES
+    print "Adding potato #{counter} to the pan."
+    print_progress_bar
+  end
+end
+
+def break_eggs
+  counter = 0
+  while counter < NUM_EGGS
+    counter += 1
+    print "Breaking egg #{counter}"
+    print_progress_bar
+  end
+end
